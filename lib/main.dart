@@ -14,6 +14,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//1.Appbar
+//2.Body
+//3.BottomNavigatoinBar
+//4.Drawer
+//5.Color and Container
+//Container widget in flutter used to decorate bg-color, padding, margin, border, alignment, etc
+//6. Row and Column
+//7. Scrollable Widgets (SingleChildScrollView, ListView, PageView)
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
