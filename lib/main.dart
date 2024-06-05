@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:salait_flutter/homework2_ex1.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen() ,
+      home: HomeWork2Ex2() ,
     );
   }
 }
@@ -53,7 +54,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            const SizedBox(height: 80,),
+            const SizedBox(height: 40,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -101,7 +102,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30,),
             _searchBar(),
-            const SizedBox(height: 50,),
+            const SizedBox(height: 20,),
             _promotionCard(),
             const SizedBox(height: 30,),
             const Row(
@@ -124,17 +125,19 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  _cardProduct(),
-                  const SizedBox(width: 20,),
-                  _cardProduct(),
-                  const SizedBox(width: 20,),
-                  _cardProduct(),
-                  
-                ],
+            SizedBox(
+              width: double.infinity,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _cardProduct(),
+                    const SizedBox(width: 20,),
+                    _cardProduct(),
+                    const SizedBox(width: 20,),
+                    _cardProduct(),
+                  ],
+                ),
               ),
             )
           ],
