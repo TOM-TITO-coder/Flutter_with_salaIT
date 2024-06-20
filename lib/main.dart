@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 //import 'package:salait_homework/homework4/page2.dart';
 //import 'package:salait_homework/homework4/page3.dart';
 //import 'package:salait_homework/homework5/home_page5.dart';
-import 'package:salait_homework/homework6/home_page6.dart';
+import 'package:salait_homework/homework6/views/home_page6.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,4 +1,5 @@
 import 'package:salait_homework/homework6/model/block.dart';
+import 'package:salait_homework/homework6/model/old_video.dart';
 import 'package:salait_homework/homework6/model/story.dart';
 
 final List<Story> stories = [
@@ -41,5 +42,38 @@ final List<Block> blocks = [
     "assets/images/travel1.jpg",
     "Lorem Ipsum is simply dummy text of the printing and Typesetting industry.",
     "2 hours ago",
+  ),
+];
+
+final List<OldVideo> oldVideos = [
+  const OldVideo(
+    "Scotland of India",
+    "#travel",
+    "assets/images/travel1.jpg",
+    "24.3k",
+  ),
+  const OldVideo(
+    "Angkorwat of Cambodia",
+    "#travel",
+    "assets/images/travel3.jpg",
+    "24.3k",
+  ),
+  const OldVideo(
+    "Scotland of India",
+    "#travel",
+    "assets/images/travel1.jpg",
+    "24.3k",
+  ),
+  const OldVideo(
+    "Scotland of India",
+    "#travel",
+    "assets/images/travel1.jpg",
+    "24.3k",
+  ),
+  const OldVideo(
+    "Scotland of India",
+    "#travel",
+    "assets/images/travel1.jpg",
+    "24.3k",
   ),
 ];

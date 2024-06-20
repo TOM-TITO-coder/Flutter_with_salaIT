@@ -3,17 +3,38 @@ import 'package:flutter/material.dart';
 import 'package:salait_homework/homework6/data.dart';
 import 'package:salait_homework/homework6/model/block.dart';
 import 'package:salait_homework/homework6/model/story.dart';
+import 'package:salait_homework/homework6/views/profile_page6.dart';
 import 'package:salait_homework/homework6/widgets/block_card.dart';
 import 'package:salait_homework/homework6/widgets/stories_card.dart';
 
-class HomePage6 extends StatelessWidget {
+class HomePage6 extends StatefulWidget {
   const HomePage6({super.key});
+
+  @override
+  State<HomePage6> createState() => _HomePage6State();
+}
+
+class _HomePage6State extends State<HomePage6> {
+  int _selectIndex = 0;
+
+  static const List<Widget> _pages = [
+    HomePageContent(),
+    Text("Search Page"),
+    Text("Post page"),
+    ProfilePage6(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: _buldUI(context),
+        child: _pages[_selectIndex],
       ),
       bottomNavigationBar: _bottomBar(context),
     );
@@ -21,6 +42,8 @@ class HomePage6 extends StatelessWidget {
 
   Widget _bottomBar(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: _selectIndex,
+      onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
@@ -42,6 +65,21 @@ class HomePage6 extends StatelessWidget {
       ],
     );
   }
+}
+
+class HomePageContent extends StatelessWidget {
+  const HomePageContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: _buldUI(context),
+        ),
+      ),
+    );
+  }
 
   Widget _buldUI(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -52,6 +90,7 @@ class HomePage6 extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 "Stories",
@@ -95,27 +134,25 @@ class HomePage6 extends StatelessWidget {
     );
   }
 
+  // Widget _block(BuildContext context) {
   Widget _block(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SizedBox(
-      width: size.width,
-      height: size.height * 0.45,
-      child: ListView.builder(
-        itemCount: blocks.length,
-        itemBuilder: (context, index) {
-          Block block = blocks[index];
-          return Container(
-            margin: const EdgeInsets.only(bottom: 20),
-            child: BlockCard(
-              name: block.name,
-              urlProfile: block.urlProfile,
-              urlImg: block.urlImg,
-              describtion: block.describtion,
-              postTime: block.postTime,
-            ),
-          );
-        },
-      ),
+    return Column(
+      children: List.generate(blocks.length, (index) {
+        Block block = blocks[index];
+        return Container(
+          width: size.width,
+          height: size.height * 0.36,
+          margin: const EdgeInsets.only(bottom: 10),
+          child: BlockCard(
+            name: block.name,
+            urlProfile: block.urlProfile,
+            urlImg: block.urlImg,
+            describtion: block.describtion,
+            postTime: block.postTime,
+          ),
+        );
+      }),
     );
   }
 
