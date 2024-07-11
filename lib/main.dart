@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_for_beginner/screens/counter_view.dart';
-import 'package:flutter_getx_for_beginner/screens/home_view.dart';
+import 'package:flutter_getx_for_beginner/app/module/products/views/product_view.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-      ),
-      home: CounterView(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ProductView(),
     );
   }
 }
